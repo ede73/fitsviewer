@@ -1,0 +1,9 @@
+<!--
+  ~ Copyright (c) Erkka Marjakangas 2023 . All rights reserved.
+  ~
+  ~ See LICENCE for further details.
+  -->
+
+<resources>
+    <string name="app_name">FITS viewer</string>
+</resources>

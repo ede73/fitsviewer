@@ -1,0 +1,25 @@
+name: Build and test
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-java@v5
+        with:
+          distribution: zulu
+          java-version: '21'
+          cache: gradle
+      - name: Build Android and desktop
+        run: ./compile_all.sh
+      - name: Run tests
+        run: ./gradlew :app:testDebugUnitTest :fitsreader:testDebugUnitTest :imagefuncs:testDebugUnitTest :shared:desktopTest
